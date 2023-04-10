@@ -4,7 +4,7 @@ import { failure } from '../utils/response';
 
 const logErrors = (error: Error, req: Request, res: Response, next: NextFunction) => {
   //TODO: redireccionar a la pagina para atrapar errores
-  // console.error(error);
+  console.error(error);
   next(error);
 };
 

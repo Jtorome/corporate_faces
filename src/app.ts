@@ -17,7 +17,7 @@ const createApp = () => {
   app.use(express.json());
 
   // ROUTES
-  app.use('/api/v1', routers);
+  app.use('/api', routers);
 
   // ERROR MIDDLEWARE
   app.use(logErrors);
