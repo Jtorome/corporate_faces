@@ -7,4 +7,8 @@ const save = async (headquarter: CreateNewHeadquarterModel): Promise<Headquarter
   return newHeadquarter;
 };
 
-export { save };
+const get = async (): Promise<CreateNewHeadquarterModel[]> => {
+  return await headquarterSchema.find();
+};
+
+export { save, get };

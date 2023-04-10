@@ -1,7 +1,7 @@
-import { NextFunction, Response } from 'express';
+import { NextFunction, Response, Request } from 'express';
 import { success } from '../../utils/response';
 
-import { saveHeadquarterService } from './service';
+import { saveHeadquarterService, getHeadquartersService } from './service';
 import { CreateNewHeadquarterInter } from './types';
 
 /**
@@ -20,4 +20,13 @@ const createHeadquarter = async (
   }
 };
 
-export { createHeadquarter };
+const getHeadquarters = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const headquarters = await getHeadquartersService();
+    res.send(headquarters);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { createHeadquarter, getHeadquarters };

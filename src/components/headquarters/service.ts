@@ -1,7 +1,7 @@
 // import Boom from '@hapi/boom';
 
 import { CreateNewHeadquarterModel, HeadquarterModel } from './types';
-import { save } from './store';
+import { save, get } from './store';
 
 const saveHeadquarterService = (
   newHeadquarter: CreateNewHeadquarterModel
@@ -9,4 +9,8 @@ const saveHeadquarterService = (
   return save(newHeadquarter);
 };
 
-export { saveHeadquarterService };
+const getHeadquartersService = (): Promise<CreateNewHeadquarterModel[]> => {
+  return get();
+};
+
+export { saveHeadquarterService, getHeadquartersService };
