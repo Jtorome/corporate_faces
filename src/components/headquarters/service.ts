@@ -1,7 +1,7 @@
 // import Boom from '@hapi/boom';
 
-import { CreateNewHeadquarterModel, HeadquarterModel } from './types';
-import { save, get } from './store';
+import { CreateNewHeadquarterModel, HeadquarterModel, UpdateHeadquarterModel } from './types';
+import { save, get, update } from './store';
 
 const saveHeadquarterService = (
   newHeadquarter: CreateNewHeadquarterModel
@@ -13,4 +13,11 @@ const getHeadquartersService = (): Promise<CreateNewHeadquarterModel[]> => {
   return get();
 };
 
-export { saveHeadquarterService, getHeadquartersService };
+const updateHeadquarterByIdService = async (
+  id: string,
+  headquarter: UpdateHeadquarterModel
+): Promise<CreateNewHeadquarterModel | null> => {
+  return await update(id, headquarter);
+};
+
+export { saveHeadquarterService, getHeadquartersService, updateHeadquarterByIdService };

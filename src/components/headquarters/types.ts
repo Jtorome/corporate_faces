@@ -17,8 +17,20 @@ type CreateNewHeadquarterModel = Omit<
   'id' | 'isActive' | 'createdAt' | 'updatedAt'
 >;
 
+type UpdateHeadquarterModel = Omit<HeadquarterModel, 'id' | 'createdAt' | 'updatedAt'>;
+
 interface CreateNewHeadquarterInter extends Request {
   body: CreateNewHeadquarterModel;
 }
 
-export { HeadquarterModel, CreateNewHeadquarterModel, CreateNewHeadquarterInter };
+interface UpdateHeadquarterInter extends Request {
+  body: UpdateHeadquarterModel;
+}
+
+export {
+  HeadquarterModel,
+  CreateNewHeadquarterModel,
+  CreateNewHeadquarterInter,
+  UpdateHeadquarterInter,
+  UpdateHeadquarterModel
+};
