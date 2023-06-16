@@ -4,6 +4,7 @@ import { failure } from '../utils/response';
 
 const logErrors = (error: Error, req: Request, res: Response, next: NextFunction) => {
   //TODO: redireccionar a la pagina para atrapar errores
+  // eslint-disable-next-line no-console
   console.error(error);
   next(error);
 };
