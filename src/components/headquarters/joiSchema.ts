@@ -5,6 +5,17 @@ import Joi from 'joi';
 const name = Joi.string();
 const address = Joi.string();
 const email = Joi.string().email();
+const latitude = Joi.number();
+const longitude = Joi.number();
+const workAreas = Joi.array().items(
+  Joi.object({
+    name: Joi.string(),
+    x: Joi.number(),
+    y: Joi.number(),
+    height: Joi.number(),
+    width: Joi.number()
+  })
+);
 const isActive = Joi.boolean();
 // const isActive = Joi.boolean();
 
@@ -18,6 +29,9 @@ const updateHeadquarterDto = Joi.object({
   name: name.required(),
   address: address.required(),
   email: email.required(),
+  latitude: latitude.required(),
+  longitude: longitude.required(),
+  workAreas: workAreas.required(),
   isActive: isActive.required()
 });
 

@@ -7,6 +7,15 @@ type HeadquarterModel = {
   name: string;
   address: string;
   email: string;
+  latitude: number;
+  longitude: number;
+  workAreas: {
+    name: string;
+    x: number;
+    y: number;
+    height: number;
+    width: number;
+  }[];
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
