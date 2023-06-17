@@ -4,7 +4,7 @@ import Boom from '@hapi/boom';
 import { config } from './config';
 
 const options: mongoose.ConnectOptions = {
-  dbName: 'FACES'
+  dbName: 'Movil'
 };
 
 mongoose.set('strictQuery', false);

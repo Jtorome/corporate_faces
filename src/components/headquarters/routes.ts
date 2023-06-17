@@ -1,8 +1,8 @@
 import express from 'express';
 
-import { validatorHandler } from '../../middlewares/validator.handler';
-import { createHeadquarterDto, updateHeadquarterDto } from './joiSchema';
 import { createHeadquarter, getHeadquarters, updateHeadquarter } from './controller';
+import { createHeadquarterDto, updateHeadquarterDto } from './joiSchema';
+import { validatorHandler } from '../../middlewares/validator.handler';
 
 const headquarterRouter = express.Router();
 
