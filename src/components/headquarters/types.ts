@@ -2,7 +2,6 @@ import { Request } from 'express';
 import { ObjectId } from 'mongoose';
 
 type HeadquarterModel = {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   id?: ObjectId;
   name: string;
   address: string;

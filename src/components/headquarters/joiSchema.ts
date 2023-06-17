@@ -22,17 +22,20 @@ const isActive = Joi.boolean();
 const createHeadquarterDto = Joi.object({
   name: name.required(),
   address: address.required(),
-  email: email.required()
-});
-
-const updateHeadquarterDto = Joi.object({
-  name: name.required(),
-  address: address.required(),
   email: email.required(),
   latitude: latitude.required(),
   longitude: longitude.required(),
-  workAreas: workAreas.required(),
-  isActive: isActive.required()
+  workAreas: workAreas.required()
+});
+
+const updateHeadquarterDto = Joi.object({
+  name,
+  address,
+  email,
+  latitude,
+  longitude,
+  workAreas,
+  isActive
 });
 
 export { createHeadquarterDto, updateHeadquarterDto };
