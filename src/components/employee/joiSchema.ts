@@ -5,6 +5,7 @@ const name = Joi.string();
 const email = Joi.string();
 const telephone = Joi.string();
 const position = Joi.string();
+const photo = Joi.string();
 const workArea = Joi.string();
 const headquarter = Joi.string().alphanum().length(24);
 const skills = Joi.array().items(Joi.string());
@@ -16,6 +17,7 @@ const createEmployeeDto = Joi.object({
   email: email.required(),
   telephone: telephone.required(),
   position: position.required(),
+  photo: photo.required(),
   workArea: workArea.required(),
   headquarter: headquarter.required(),
   skills: skills.required()

@@ -8,6 +8,7 @@ const schema = new Schema(
     },
     email: {
       type: String,
+      unique: true,
       required: true
     },
     telephone: {
@@ -15,6 +16,10 @@ const schema = new Schema(
       required: true
     },
     position: {
+      type: String,
+      required: true
+    },
+    photo: {
       type: String,
       required: true
     },
