@@ -6,6 +6,7 @@ type EmployeeModel = {
   email: string;
   telephone: string;
   position: string;
+  photo: string;
   workArea: string;
   headquarter: string;
   skills: string[];
@@ -20,7 +21,9 @@ interface CreateNewEmployeeRequest extends Request {
   body: CreateNewEmployeeModel;
 }
 
-type FilterEmployeesModel = Partial<Omit<CreateNewEmployeeModel, 'telephone'>> & { skill?: string };
+type FilterEmployeesModel = Partial<Omit<CreateNewEmployeeModel, 'telephone' | 'photo'>> & {
+  skill?: string;
+};
 
 interface FilterEmployeesRequest extends Request {
   query: FilterEmployeesModel;
