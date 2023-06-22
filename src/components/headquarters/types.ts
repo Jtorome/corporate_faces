@@ -27,6 +27,8 @@ type CreateNewHeadquarterModel = Omit<
 
 type UpdateHeadquarterModel = Omit<HeadquarterModel, 'id' | 'createdAt' | 'updatedAt'>;
 
+type DistanceHeadquarterModel = Pick<HeadquarterModel, 'longitude' | 'latitude'>;
+
 interface CreateNewHeadquarterInter extends Request {
   body: CreateNewHeadquarterModel;
 }
@@ -35,10 +37,16 @@ interface UpdateHeadquarterInter extends Request {
   body: UpdateHeadquarterModel;
 }
 
+interface DistanceHeadquarterRequest extends Request {
+  body: DistanceHeadquarterModel;
+}
+
 export {
   HeadquarterModel,
   CreateNewHeadquarterModel,
   CreateNewHeadquarterInter,
   UpdateHeadquarterInter,
-  UpdateHeadquarterModel
+  UpdateHeadquarterModel,
+  DistanceHeadquarterRequest,
+  DistanceHeadquarterModel
 };

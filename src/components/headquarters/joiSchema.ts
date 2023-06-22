@@ -28,6 +28,11 @@ const createHeadquarterDto = Joi.object({
   workAreas: workAreas.required()
 });
 
+const distanceHeadquarterDto = Joi.object({
+  latitude: latitude.required(),
+  longitude: longitude.required()
+});
+
 const updateHeadquarterDto = Joi.object({
   name,
   address,
@@ -38,4 +43,4 @@ const updateHeadquarterDto = Joi.object({
   isActive
 });
 
-export { createHeadquarterDto, updateHeadquarterDto };
+export { createHeadquarterDto, updateHeadquarterDto, distanceHeadquarterDto };
