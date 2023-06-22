@@ -7,7 +7,7 @@ const save = async (headquarter: CreateNewHeadquarterModel): Promise<Headquarter
   return newHeadquarter;
 };
 
-const get = async (): Promise<CreateNewHeadquarterModel[]> => {
+const get = async (): Promise<HeadquarterModel[]> => {
   return await headquarterSchema.find();
 };
 

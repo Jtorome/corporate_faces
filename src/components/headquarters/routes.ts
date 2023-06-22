@@ -1,12 +1,23 @@
 import express from 'express';
 
-import { createHeadquarter, getHeadquarters, updateHeadquarter } from './controller';
-import { createHeadquarterDto, updateHeadquarterDto } from './joiSchema';
+import {
+  createHeadquarter,
+  distanceHeadquarter,
+  getHeadquarters,
+  updateHeadquarter
+} from './controller';
+import { createHeadquarterDto, distanceHeadquarterDto, updateHeadquarterDto } from './joiSchema';
 import { validatorHandler } from '../../middlewares/validator.handler';
 
 const headquarterRouter = express.Router();
 
 headquarterRouter.post('/', validatorHandler(createHeadquarterDto, 'body'), createHeadquarter);
+
+headquarterRouter.post(
+  '/distance',
+  validatorHandler(distanceHeadquarterDto, 'body'),
+  distanceHeadquarter
+);
 
 headquarterRouter.get('/', getHeadquarters);
 

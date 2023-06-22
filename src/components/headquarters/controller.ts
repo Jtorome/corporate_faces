@@ -4,9 +4,14 @@ import { success } from '../../utils/response';
 import {
   saveHeadquarterService,
   getHeadquartersService,
-  updateHeadquarterByIdService
+  updateHeadquarterByIdService,
+  distanceHeadquarterService
 } from './service';
-import { CreateNewHeadquarterInter, UpdateHeadquarterInter } from './types';
+import {
+  CreateNewHeadquarterInter,
+  DistanceHeadquarterRequest,
+  UpdateHeadquarterInter
+} from './types';
 
 /**
  * @returns Headquarter created
@@ -46,4 +51,17 @@ const updateHeadquarter = async (
   }
 };
 
-export { createHeadquarter, getHeadquarters, updateHeadquarter };
+const distanceHeadquarter = async (
+  req: DistanceHeadquarterRequest,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const closestHeadquarter = await distanceHeadquarterService(req.body);
+    success(res, 200, 'Ok', closestHeadquarter);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { createHeadquarter, getHeadquarters, updateHeadquarter, distanceHeadquarter };
