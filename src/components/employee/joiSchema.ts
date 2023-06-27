@@ -31,6 +31,6 @@ const filterEmployeesDto = Joi.object({
   headquarter,
   skills,
   skill
-}).min(1);
+});
 
 export { createEmployeeDto, filterEmployeesDto };
