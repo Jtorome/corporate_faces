@@ -4,7 +4,6 @@ import { failure } from '../utils/response';
 
 const logErrors = (error: Error, req: Request, res: Response, next: NextFunction) => {
   //TODO: redireccionar a la pagina para atrapar errores
-  // console.error(error);
   next(error);
 };
 
@@ -21,4 +20,11 @@ const boomErrorHandler = (error: Boom.Boom, req: Request, res: Response, next: N
   next(error);
 };
 
-export { errorHandler, logErrors, boomErrorHandler };
+const mongoErrorHandler = (error: Error, req: Request, res: Response, next: NextFunction) => {
+  if (error.stack?.match('MongoServerError: E11000')) {
+    return failure(res, 400, 'Document already exists', undefined);
+  }
+  next(error);
+};
+
+export { errorHandler, logErrors, boomErrorHandler, mongoErrorHandler };
