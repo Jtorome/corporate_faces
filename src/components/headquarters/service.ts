@@ -6,7 +6,7 @@ import {
   HeadquarterModel,
   UpdateHeadquarterModel
 } from './types';
-import { save, get, update } from './store';
+import { save, get, update, findAllWorkAreas } from './store';
 
 const saveHeadquarterService = (
   newHeadquarter: CreateNewHeadquarterModel
@@ -41,9 +41,15 @@ const distanceHeadquarterService = async (coords: DistanceHeadquarterModel) => {
   return headquarters[index];
 };
 
+const getAllWorkAreasService = async () => {
+  const workAreasFound = await findAllWorkAreas();
+  return workAreasFound;
+};
+
 export {
   saveHeadquarterService,
   getHeadquartersService,
   updateHeadquarterByIdService,
-  distanceHeadquarterService
+  distanceHeadquarterService,
+  getAllWorkAreasService
 };

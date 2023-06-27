@@ -19,4 +19,14 @@ const update = async (
   return headquarterUpdated;
 };
 
-export { save, get, update };
+const findAllWorkAreas = async () => {
+  const workAreasFound = await headquarterSchema.aggregate([
+    { $unwind: { path: '$workAreas' } },
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    { $group: { _id: '$workAreas.name' } }
+  ]);
+
+  return workAreasFound;
+};
+
+export { save, get, update, findAllWorkAreas };

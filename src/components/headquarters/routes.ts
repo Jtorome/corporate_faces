@@ -3,6 +3,7 @@ import express from 'express';
 import {
   createHeadquarter,
   distanceHeadquarter,
+  getAllWorkAreas,
   getHeadquarters,
   updateHeadquarter
 } from './controller';
@@ -20,6 +21,8 @@ headquarterRouter.post(
 );
 
 headquarterRouter.get('/', getHeadquarters);
+
+headquarterRouter.get('/workAreas', getAllWorkAreas);
 
 headquarterRouter.put('/:id', validatorHandler(updateHeadquarterDto, 'body'), updateHeadquarter);
 

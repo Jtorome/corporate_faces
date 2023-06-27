@@ -5,7 +5,8 @@ import {
   saveHeadquarterService,
   getHeadquartersService,
   updateHeadquarterByIdService,
-  distanceHeadquarterService
+  distanceHeadquarterService,
+  getAllWorkAreasService
 } from './service';
 import {
   CreateNewHeadquarterInter,
@@ -64,4 +65,19 @@ const distanceHeadquarter = async (
   }
 };
 
-export { createHeadquarter, getHeadquarters, updateHeadquarter, distanceHeadquarter };
+const getAllWorkAreas = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const workAreasFound = await getAllWorkAreasService();
+    success(res, 200, 'Ok', workAreasFound);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export {
+  createHeadquarter,
+  getHeadquarters,
+  updateHeadquarter,
+  distanceHeadquarter,
+  getAllWorkAreas
+};
